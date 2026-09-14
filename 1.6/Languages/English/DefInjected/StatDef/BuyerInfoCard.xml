@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BuyerInfoCard_Buyers.label>buyers</BuyerInfoCard_Buyers.label>
+  <BuyerInfoCard_Buyers.description>Factions whose configured trader kinds can buy this kind of thing.</BuyerInfoCard_Buyers.description>
+</LanguageData>

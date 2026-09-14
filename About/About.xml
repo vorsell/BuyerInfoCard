@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Buyer Info Card</name>
+  <author>Vorsel</author>
+  <packageId>vorsel.buyerinfocard</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>creeper.betterinfocard</li>
+    <li>yancy.factiongearcustomizer</li>
+  </loadAfter>
+  <description><![CDATA[中文：
+为物品、生物和类人角色的信息卡添加“收购方”属性。按当前商人规则列出会收购目标的派系与商人类型，并将没有派系归属的轨道商人单独归为“无派系商船”。可显示派系链接及最近据点，设置支持派系、物品分类和当前物品状态过滤。
+
+兼容性说明：本模组对 yc’s Faction Editor 的贸易规则变更提供缓存同步及部分防御性处理。该兼容仅覆盖已验证的贸易编辑与全局重置路径，不代表对其全部功能或未来版本提供完整兼容保证。
+
+代码由 OpenAI Codex 协助编写。
+
+English:
+Adds a Buyers stat to item, animal, and humanlike info cards. It follows current trader rules, lists matching factions and trader kinds, and groups orbital traders with no faction association as Factionless trade ships. It can link to factions and nearby settlements and provides faction, category, and current-item filters.
+
+Compatibility note: Partial compatibility is provided for trade-rule changes made by yc’s Faction Editor, including cache synchronization and defensive handling of tested global-reset paths. Full compatibility with all features or future versions is not guaranteed.
+
+Code was written with assistance from OpenAI Codex.]]></description>
+</ModMetaData>

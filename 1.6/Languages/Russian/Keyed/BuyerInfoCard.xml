@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BIC_SettingsCategory>Информация о покупателях</BIC_SettingsCategory>
+  <BIC_PageBasic>Основные настройки</BIC_PageBasic>
+  <BIC_PageFactionsItems>Фракции и предметы</BIC_PageFactionsItems>
+  <BIC_GlobalRules>Основные настройки</BIC_GlobalRules>
+  <BIC_CurrentItemFilters>Фильтры текущего предмета</BIC_CurrentItemFilters>
+  <BIC_DisplaySettings>Отображение</BIC_DisplaySettings>
+  <BIC_SummaryUsesIcons>Использовать значки фракций в сводке покупателей</BIC_SummaryUsesIcons>
+  <BIC_MergeIntoMarketValue>Объединять с подробностями рыночной стоимости</BIC_MergeIntoMarketValue>
+  <BIC_ShowNearestSettlements>Показывать ближайшие поселения фракций-покупателей</BIC_ShowNearestSettlements>
+  <BIC_ShowTraderKinds>Показывать конкретные типы торговцев фракций-покупателей</BIC_ShowTraderKinds>
+  <BIC_FactionLinkDestination>Переход по ссылке на фракцию</BIC_FactionLinkDestination>
+  <BIC_LinkTargetInfoCard>Информационная карточка</BIC_LinkTargetInfoCard>
+  <BIC_LinkTargetFactionMenu>Меню фракций</BIC_LinkTargetFactionMenu>
+  <BIC_CacheSettings>Кэш</BIC_CacheSettings>
+  <BIC_ShowDeadmansApparel>Показывать одежду с трупов</BIC_ShowDeadmansApparel>
+  <BIC_ShowBiocoded>Показывать предметы с биокодировкой</BIC_ShowBiocoded>
+  <BIC_ShowRotten>Показывать сгнившие предметы</BIC_ShowRotten>
+  <BIC_RuleCacheCapacity>Размер кэша покупателей предметов</BIC_RuleCacheCapacity>
+  <BIC_RuleCacheHelp>Каждое уникальное определение предмета или расы занимает одну запись; 0 отключает кэш. Записи создаются только по запросу информационной карточки и становятся недействительными при следующем запросе после 60 000 тиков. Очистка кэша не запускает немедленное сканирование; соответствующие данные будут пересчитаны при следующем открытии информационной карточки.</BIC_RuleCacheHelp>
+  <BIC_RefreshRuleCache>Обновить кэш правил покупателей сейчас</BIC_RefreshRuleCache>
+  <BIC_ClearRuleCache>Очистить кэш</BIC_ClearRuleCache>
+  <BIC_Reset>Сбросить</BIC_Reset>
+  <BIC_FactionOptions>Настройки фракций</BIC_FactionOptions>
+  <BIC_ExcludeHostileFactions>Автоматически исключать враждебные фракции</BIC_ExcludeHostileFactions>
+  <BIC_FactionlessTradeShips>Торговые корабли без фракции</BIC_FactionlessTradeShips>
+  <BIC_FactionlessTradeShipsHelp>Показывать орбитальных торговцев, не связанных ни с одной фракцией.</BIC_FactionlessTradeShipsHelp>
+  <BIC_CategoryFilters>Категории предметов</BIC_CategoryFilters>
+  <BIC_EnableAll>Включить все</BIC_EnableAll>
+  <BIC_DisableAll>Отключить все</BIC_DisableAll>
+  <BIC_Humanlikes>Человекоподобные расы</BIC_Humanlikes>
+  <BIC_Colonists>Колонисты</BIC_Colonists>
+  <BIC_Prisoners>Пленные</BIC_Prisoners>
+  <BIC_Slaves>Рабы</BIC_Slaves>
+  <BIC_Other>Прочее</BIC_Other>
+  <BIC_NoKnownBuyer>Нет известных покупателей</BIC_NoKnownBuyer>
+  <BIC_NoWorldBuyer>В текущем мире нет соответствующей фракции</BIC_NoWorldBuyer>
+  <BIC_CurrentlyUnsellable>Сейчас нельзя продать</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>Текущие ограничения: {0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>снято с трупа</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>с биокодировкой</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>сгнило</BIC_ReasonRotten>
+  <BIC_ReasonOther>иное текущее ограничение продажи</BIC_ReasonOther>
+  <BIC_FactionWithNearestSettlement>{0} (ближайшее поселение: {1}, расстояние: {2} клеток)</BIC_FactionWithNearestSettlement>
+  <BIC_FactionHyperlink>Фракция — {0}</BIC_FactionHyperlink>
+  <BIC_SettlementHyperlink>Ближайшее поселение — {0}</BIC_SettlementHyperlink>
+  <BIC_BuyersSection>Покупатели:</BIC_BuyersSection>
+  <BIC_BuyerCount>Покупателей: {0}</BIC_BuyerCount>
+  <BIC_NoSettlement>Нет текущего поселения</BIC_NoSettlement>
+  <BIC_BuyerKinds>Подходящих типов торговцев: {0}</BIC_BuyerKinds>
+</LanguageData>

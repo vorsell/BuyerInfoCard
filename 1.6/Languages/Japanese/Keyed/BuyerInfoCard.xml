@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BIC_SettingsCategory>購入者情報カード</BIC_SettingsCategory>
+  <BIC_PageBasic>基本設定</BIC_PageBasic>
+  <BIC_PageFactionsItems>派閥とアイテム</BIC_PageFactionsItems>
+  <BIC_GlobalRules>基本設定</BIC_GlobalRules>
+  <BIC_CurrentItemFilters>現在のアイテムのフィルター</BIC_CurrentItemFilters>
+  <BIC_DisplaySettings>表示</BIC_DisplaySettings>
+  <BIC_SummaryUsesIcons>購入者の概要に派閥アイコンを表示</BIC_SummaryUsesIcons>
+  <BIC_MergeIntoMarketValue>市場価値の詳細に統合</BIC_MergeIntoMarketValue>
+  <BIC_ShowNearestSettlements>購入派閥の最寄りの拠点を表示</BIC_ShowNearestSettlements>
+  <BIC_ShowTraderKinds>購入派閥の具体的なトレーダー種別を表示</BIC_ShowTraderKinds>
+  <BIC_FactionLinkDestination>派閥リンクの移動先</BIC_FactionLinkDestination>
+  <BIC_LinkTargetInfoCard>情報カード</BIC_LinkTargetInfoCard>
+  <BIC_LinkTargetFactionMenu>派閥メニュー</BIC_LinkTargetFactionMenu>
+  <BIC_CacheSettings>キャッシュ</BIC_CacheSettings>
+  <BIC_ShowDeadmansApparel>死体から剥いだ衣服を表示</BIC_ShowDeadmansApparel>
+  <BIC_ShowBiocoded>バイオコードされたアイテムを表示</BIC_ShowBiocoded>
+  <BIC_ShowRotten>腐敗したアイテムを表示</BIC_ShowRotten>
+  <BIC_RuleCacheCapacity>アイテム購入者キャッシュ容量</BIC_RuleCacheCapacity>
+  <BIC_RuleCacheHelp>アイテムまたは種族の定義ごとに1件のエントリを使用します。0にするとキャッシュを無効にします。エントリは情報カードから要求された場合にのみ使用され、60,000ティック後の次回照会時に期限切れになります。キャッシュを消去してもすぐには走査されず、該当項目は次に情報カードを開いたときに再計算されます。</BIC_RuleCacheHelp>
+  <BIC_RefreshRuleCache>購入者ルールのキャッシュを今すぐ更新</BIC_RefreshRuleCache>
+  <BIC_ClearRuleCache>キャッシュを消去</BIC_ClearRuleCache>
+  <BIC_Reset>リセット</BIC_Reset>
+  <BIC_FactionOptions>派閥設定</BIC_FactionOptions>
+  <BIC_ExcludeHostileFactions>敵対派閥を自動的に除外</BIC_ExcludeHostileFactions>
+  <BIC_FactionlessTradeShips>派閥なしの交易船</BIC_FactionlessTradeShips>
+  <BIC_FactionlessTradeShipsHelp>どの派閥定義にも関連付けられていない軌道上の交易船を表示します。</BIC_FactionlessTradeShipsHelp>
+  <BIC_CategoryFilters>アイテムカテゴリー</BIC_CategoryFilters>
+  <BIC_EnableAll>すべて有効</BIC_EnableAll>
+  <BIC_DisableAll>すべて無効</BIC_DisableAll>
+  <BIC_Humanlikes>人間型種族</BIC_Humanlikes>
+  <BIC_Colonists>入植者</BIC_Colonists>
+  <BIC_Prisoners>囚人</BIC_Prisoners>
+  <BIC_Slaves>奴隷</BIC_Slaves>
+  <BIC_Other>その他</BIC_Other>
+  <BIC_NoKnownBuyer>既知の購入者なし</BIC_NoKnownBuyer>
+  <BIC_NoWorldBuyer>現在のワールドに該当する派閥なし</BIC_NoWorldBuyer>
+  <BIC_CurrentlyUnsellable>現在は売却不可</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>現在の制限：{0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>死体から剥いだ衣服</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>バイオコード済み</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>腐敗済み</BIC_ReasonRotten>
+  <BIC_ReasonOther>その他の現在の売却制限</BIC_ReasonOther>
+  <BIC_FactionWithNearestSettlement>{0}（最寄りの拠点：{1}、距離：{2}マス）</BIC_FactionWithNearestSettlement>
+  <BIC_FactionHyperlink>派閥 — {0}</BIC_FactionHyperlink>
+  <BIC_SettlementHyperlink>最寄りの拠点 — {0}</BIC_SettlementHyperlink>
+  <BIC_BuyersSection>購入者：</BIC_BuyersSection>
+  <BIC_BuyerCount>買い手：{0}</BIC_BuyerCount>
+  <BIC_NoSettlement>現在の拠点なし</BIC_NoSettlement>
+  <BIC_BuyerKinds>{0}種類のトレーダーが購入可能</BIC_BuyerKinds>
+</LanguageData>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BIC_SettingsCategory>收购方信息卡</BIC_SettingsCategory>
+  <BIC_PageBasic>基础设置</BIC_PageBasic>
+  <BIC_PageFactionsItems>派系与物品</BIC_PageFactionsItems>
+  <BIC_GlobalRules>基础设置</BIC_GlobalRules>
+  <BIC_CurrentItemFilters>当前物品过滤</BIC_CurrentItemFilters>
+  <BIC_DisplaySettings>显示</BIC_DisplaySettings>
+  <BIC_SummaryUsesIcons>收购方摘要使用派系图标</BIC_SummaryUsesIcons>
+  <BIC_MergeIntoMarketValue>合并进市场价值详情</BIC_MergeIntoMarketValue>
+  <BIC_ShowNearestSettlements>显示收购派系的最近据点</BIC_ShowNearestSettlements>
+  <BIC_ShowTraderKinds>显示收购派系的具体商队名称</BIC_ShowTraderKinds>
+  <BIC_FactionLinkDestination>派系超链接跳转</BIC_FactionLinkDestination>
+  <BIC_LinkTargetInfoCard>信息卡</BIC_LinkTargetInfoCard>
+  <BIC_LinkTargetFactionMenu>派系菜单</BIC_LinkTargetFactionMenu>
+  <BIC_CacheSettings>缓存</BIC_CacheSettings>
+  <BIC_ShowDeadmansApparel>显示死者衣物</BIC_ShowDeadmansApparel>
+  <BIC_ShowBiocoded>显示生物编码物品</BIC_ShowBiocoded>
+  <BIC_ShowRotten>显示腐坏物</BIC_ShowRotten>
+  <BIC_RuleCacheCapacity>物品收购方缓存上限</BIC_RuleCacheCapacity>
+  <BIC_RuleCacheHelp>每个不同的物品或种族定义占一个条目；0 表示关闭缓存。缓存只在打开信息卡时按需使用，条目在 60,000 ticks 后于下次查询时失效。“清空缓存”不会立即扫描；相关内容会在下次打开信息卡时重新计算。</BIC_RuleCacheHelp>
+  <BIC_RefreshRuleCache>立即刷新收购规则缓存</BIC_RefreshRuleCache>
+  <BIC_ClearRuleCache>清空缓存</BIC_ClearRuleCache>
+  <BIC_Reset>重置</BIC_Reset>
+  <BIC_FactionOptions>派系选项</BIC_FactionOptions>
+  <BIC_ExcludeHostileFactions>自动排除敌对派系</BIC_ExcludeHostileFactions>
+  <BIC_FactionlessTradeShips>无派系商船</BIC_FactionlessTradeShips>
+  <BIC_FactionlessTradeShipsHelp>显示未与任何派系定义关联的轨道商人。</BIC_FactionlessTradeShipsHelp>
+  <BIC_CategoryFilters>物品分类</BIC_CategoryFilters>
+  <BIC_EnableAll>全部启用</BIC_EnableAll>
+  <BIC_DisableAll>全部取消</BIC_DisableAll>
+  <BIC_Humanlikes>类人种族</BIC_Humanlikes>
+  <BIC_Colonists>殖民者</BIC_Colonists>
+  <BIC_Prisoners>囚犯</BIC_Prisoners>
+  <BIC_Slaves>奴隶</BIC_Slaves>
+  <BIC_Other>其他</BIC_Other>
+  <BIC_NoKnownBuyer>无已知收购方</BIC_NoKnownBuyer>
+  <BIC_NoWorldBuyer>当前世界没有对应派系实例</BIC_NoWorldBuyer>
+  <BIC_CurrentlyUnsellable>当前不可出售</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>当前限制：{0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>死者衣物</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>生物编码</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>已经腐坏</BIC_ReasonRotten>
+  <BIC_ReasonOther>其他当前出售限制</BIC_ReasonOther>
+  <BIC_FactionWithNearestSettlement>{0}（最近据点：{1}，距离：{2}格）</BIC_FactionWithNearestSettlement>
+  <BIC_FactionHyperlink>派系-{0}</BIC_FactionHyperlink>
+  <BIC_SettlementHyperlink>最近定居点-{0}</BIC_SettlementHyperlink>
+  <BIC_BuyersSection>收购方：</BIC_BuyersSection>
+  <BIC_BuyerCount>{0} 个收购方</BIC_BuyerCount>
+  <BIC_NoSettlement>当前没有据点</BIC_NoSettlement>
+  <BIC_BuyerKinds>{0} 种商人规则接受此物品</BIC_BuyerKinds>
+</LanguageData>

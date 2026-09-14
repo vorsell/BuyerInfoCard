@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BIC_SettingsCategory>구매자 정보 카드</BIC_SettingsCategory>
+  <BIC_PageBasic>기본 설정</BIC_PageBasic>
+  <BIC_PageFactionsItems>세력 및 물품</BIC_PageFactionsItems>
+  <BIC_GlobalRules>기본 설정</BIC_GlobalRules>
+  <BIC_CurrentItemFilters>현재 물품 필터</BIC_CurrentItemFilters>
+  <BIC_DisplaySettings>표시</BIC_DisplaySettings>
+  <BIC_SummaryUsesIcons>구매자 요약에 세력 아이콘 사용</BIC_SummaryUsesIcons>
+  <BIC_MergeIntoMarketValue>시장 가치 세부 정보에 통합</BIC_MergeIntoMarketValue>
+  <BIC_ShowNearestSettlements>구매 세력의 가장 가까운 정착지 표시</BIC_ShowNearestSettlements>
+  <BIC_ShowTraderKinds>구매 세력의 구체적인 상인 유형 표시</BIC_ShowTraderKinds>
+  <BIC_FactionLinkDestination>세력 하이퍼링크 이동 위치</BIC_FactionLinkDestination>
+  <BIC_LinkTargetInfoCard>정보 카드</BIC_LinkTargetInfoCard>
+  <BIC_LinkTargetFactionMenu>세력 메뉴</BIC_LinkTargetFactionMenu>
+  <BIC_CacheSettings>캐시</BIC_CacheSettings>
+  <BIC_ShowDeadmansApparel>시체에서 벗긴 의류 표시</BIC_ShowDeadmansApparel>
+  <BIC_ShowBiocoded>생체 코드 물품 표시</BIC_ShowBiocoded>
+  <BIC_ShowRotten>부패한 물품 표시</BIC_ShowRotten>
+  <BIC_RuleCacheCapacity>물품 구매자 캐시 용량</BIC_RuleCacheCapacity>
+  <BIC_RuleCacheHelp>각 고유한 물품 또는 종족 정의는 항목 하나를 사용합니다. 0으로 설정하면 캐시를 사용하지 않습니다. 정보 카드를 요청할 때만 항목을 사용하며, 60,000틱 후 다음 조회 시 만료됩니다. 캐시 지우기는 즉시 검색하지 않으며, 관련 항목은 다음에 정보 카드를 열 때 다시 계산됩니다.</BIC_RuleCacheHelp>
+  <BIC_RefreshRuleCache>구매자 규칙 캐시 지금 새로 고침</BIC_RefreshRuleCache>
+  <BIC_ClearRuleCache>캐시 지우기</BIC_ClearRuleCache>
+  <BIC_Reset>초기화</BIC_Reset>
+  <BIC_FactionOptions>세력 설정</BIC_FactionOptions>
+  <BIC_ExcludeHostileFactions>적대 세력 자동 제외</BIC_ExcludeHostileFactions>
+  <BIC_FactionlessTradeShips>무소속 무역선</BIC_FactionlessTradeShips>
+  <BIC_FactionlessTradeShipsHelp>어떤 세력 정의에도 연결되지 않은 궤도 무역상을 표시합니다.</BIC_FactionlessTradeShipsHelp>
+  <BIC_CategoryFilters>물품 범주</BIC_CategoryFilters>
+  <BIC_EnableAll>모두 활성화</BIC_EnableAll>
+  <BIC_DisableAll>모두 비활성화</BIC_DisableAll>
+  <BIC_Humanlikes>인간형 종족</BIC_Humanlikes>
+  <BIC_Colonists>정착민</BIC_Colonists>
+  <BIC_Prisoners>포로</BIC_Prisoners>
+  <BIC_Slaves>노예</BIC_Slaves>
+  <BIC_Other>기타</BIC_Other>
+  <BIC_NoKnownBuyer>알려진 구매자 없음</BIC_NoKnownBuyer>
+  <BIC_NoWorldBuyer>현재 세계에 해당 세력이 없음</BIC_NoWorldBuyer>
+  <BIC_CurrentlyUnsellable>현재 판매 불가</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>현재 제한: {0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>시체 착용품</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>생체 코드</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>부패</BIC_ReasonRotten>
+  <BIC_ReasonOther>기타 현재 판매 제한</BIC_ReasonOther>
+  <BIC_FactionWithNearestSettlement>{0} (가장 가까운 정착지: {1}, 거리: {2}칸)</BIC_FactionWithNearestSettlement>
+  <BIC_FactionHyperlink>세력 — {0}</BIC_FactionHyperlink>
+  <BIC_SettlementHyperlink>가장 가까운 정착지 — {0}</BIC_SettlementHyperlink>
+  <BIC_BuyersSection>구매자:</BIC_BuyersSection>
+  <BIC_BuyerCount>구매처 {0}곳</BIC_BuyerCount>
+  <BIC_NoSettlement>현재 정착지 없음</BIC_NoSettlement>
+  <BIC_BuyerKinds>{0}개 상인 유형에서 구매 가능</BIC_BuyerKinds>
+</LanguageData>
