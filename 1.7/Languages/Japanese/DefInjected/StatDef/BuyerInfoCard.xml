@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BuyerInfoCard_Buyers.label>購入者</BuyerInfoCard_Buyers.label>
+  <BuyerInfoCard_Buyers.description>設定されたトレーダー種別がこの種類のアイテムを購入できる派閥。</BuyerInfoCard_Buyers.description>
+</LanguageData>

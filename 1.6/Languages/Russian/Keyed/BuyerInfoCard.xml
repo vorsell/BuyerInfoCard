@@ -36,11 +36,11 @@
   <BIC_Other>Прочее</BIC_Other>
   <BIC_NoKnownBuyer>Нет известных покупателей</BIC_NoKnownBuyer>
   <BIC_NoWorldBuyer>В текущем мире нет соответствующей фракции</BIC_NoWorldBuyer>
-  <BIC_CurrentlyUnsellable>Сейчас нельзя продать</BIC_CurrentlyUnsellable>
-  <BIC_CurrentReasons>Текущие ограничения: {0}</BIC_CurrentReasons>
-  <BIC_ReasonDeadmans>снято с трупа</BIC_ReasonDeadmans>
-  <BIC_ReasonBiocoded>с биокодировкой</BIC_ReasonBiocoded>
-  <BIC_ReasonRotten>сгнило</BIC_ReasonRotten>
+  <BIC_CurrentlyUnsellable>Особое состояние</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>Состояние предмета: {0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>С трупа</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>Биокод</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>Сгнило</BIC_ReasonRotten>
   <BIC_ReasonOther>иное текущее ограничение продажи</BIC_ReasonOther>
   <BIC_FactionWithNearestSettlement>{0} (ближайшее поселение: {1}, расстояние: {2} клеток)</BIC_FactionWithNearestSettlement>
   <BIC_FactionHyperlink>Фракция — {0}</BIC_FactionHyperlink>

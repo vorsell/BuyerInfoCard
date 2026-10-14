@@ -36,11 +36,11 @@
   <BIC_Other>その他</BIC_Other>
   <BIC_NoKnownBuyer>既知の購入者なし</BIC_NoKnownBuyer>
   <BIC_NoWorldBuyer>現在のワールドに該当する派閥なし</BIC_NoWorldBuyer>
-  <BIC_CurrentlyUnsellable>現在は売却不可</BIC_CurrentlyUnsellable>
-  <BIC_CurrentReasons>現在の制限：{0}</BIC_CurrentReasons>
-  <BIC_ReasonDeadmans>死体から剥いだ衣服</BIC_ReasonDeadmans>
-  <BIC_ReasonBiocoded>バイオコード済み</BIC_ReasonBiocoded>
-  <BIC_ReasonRotten>腐敗済み</BIC_ReasonRotten>
+  <BIC_CurrentlyUnsellable>特殊な状態</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>アイテムの状態：{0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>死体の衣服</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>バイオコード</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>腐敗</BIC_ReasonRotten>
   <BIC_ReasonOther>その他の現在の売却制限</BIC_ReasonOther>
   <BIC_FactionWithNearestSettlement>{0}（最寄りの拠点：{1}、距離：{2}マス）</BIC_FactionWithNearestSettlement>
   <BIC_FactionHyperlink>派閥 — {0}</BIC_FactionHyperlink>

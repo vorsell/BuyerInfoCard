@@ -36,8 +36,8 @@
   <BIC_Other>其他</BIC_Other>
   <BIC_NoKnownBuyer>無已知收購方</BIC_NoKnownBuyer>
   <BIC_NoWorldBuyer>目前世界沒有對應派系實例</BIC_NoWorldBuyer>
-  <BIC_CurrentlyUnsellable>目前無法出售</BIC_CurrentlyUnsellable>
-  <BIC_CurrentReasons>目前限制：{0}</BIC_CurrentReasons>
+  <BIC_CurrentlyUnsellable>特殊狀態</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>物品狀態：{0}</BIC_CurrentReasons>
   <BIC_ReasonDeadmans>死者衣物</BIC_ReasonDeadmans>
   <BIC_ReasonBiocoded>生物編碼</BIC_ReasonBiocoded>
   <BIC_ReasonRotten>已腐爛</BIC_ReasonRotten>

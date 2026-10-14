@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BuyerInfoCard_Buyers.label>покупатели</BuyerInfoCard_Buyers.label>
+  <BuyerInfoCard_Buyers.description>Фракции, настроенные типы торговцев которых могут покупать предметы этого вида.</BuyerInfoCard_Buyers.description>
+</LanguageData>

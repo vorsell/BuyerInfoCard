@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <StatDef>
+    <defName>BuyerInfoCard_Buyers</defName>
+    <label>buyers</label>
+    <description>Factions whose configured trader kinds can buy this kind of thing.</description>
+    <category>BasicsImportant</category>
+    <workerClass>BuyerInfoCard.BuyerStatWorker</workerClass>
+    <defaultBaseValue>0</defaultBaseValue>
+    <displayPriorityInCategory>2509</displayPriorityInCategory>
+    <showIfUndefined>true</showIfUndefined>
+    <showOnUntradeables>true</showOnUntradeables>
+    <showOnPawns>true</showOnPawns>
+    <showNonAbstract>true</showNonAbstract>
+  </StatDef>
+</Defs>

@@ -36,11 +36,11 @@
   <BIC_Other>Other</BIC_Other>
   <BIC_NoKnownBuyer>No known buyer</BIC_NoKnownBuyer>
   <BIC_NoWorldBuyer>No current faction instance</BIC_NoWorldBuyer>
-  <BIC_CurrentlyUnsellable>Currently unsellable</BIC_CurrentlyUnsellable>
-  <BIC_CurrentReasons>Current restrictions: {0}</BIC_CurrentReasons>
-  <BIC_ReasonDeadmans>corpse-worn</BIC_ReasonDeadmans>
-  <BIC_ReasonBiocoded>biocoded</BIC_ReasonBiocoded>
-  <BIC_ReasonRotten>rotten</BIC_ReasonRotten>
+  <BIC_CurrentlyUnsellable>Special status</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>Item status: {0}</BIC_CurrentReasons>
+  <BIC_ReasonDeadmans>Corpse-worn</BIC_ReasonDeadmans>
+  <BIC_ReasonBiocoded>Biocoded</BIC_ReasonBiocoded>
+  <BIC_ReasonRotten>Rotten</BIC_ReasonRotten>
   <BIC_ReasonOther>another current sale restriction</BIC_ReasonOther>
   <BIC_FactionWithNearestSettlement>{0} (nearest settlement: {1}, distance: {2} tiles)</BIC_FactionWithNearestSettlement>
   <BIC_FactionHyperlink>Faction - {0}</BIC_FactionHyperlink>

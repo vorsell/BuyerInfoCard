@@ -10,7 +10,12 @@ namespace BuyerInfoCard
     internal static class Bootstrap
     {
         private const string HarmonyId = "vorsel.buyerinfocard";
-        private const string BuildId = "20260914-fgc-defensive-reset";
+        private const string BuildId = "20261014-fixed-pipe";
+#if RIMWORLD_1_7
+        private const string TargetGameVersion = "1.7";
+#else
+        private const string TargetGameVersion = "1.6";
+#endif
         private static readonly Harmony Harmony = new Harmony(HarmonyId);
 
         static Bootstrap()
@@ -47,14 +52,14 @@ namespace BuyerInfoCard
         {
             CategoryCatalog.RebuildAndInjectStat();
             BuyerInfoService.InitializeDefinitions(BuyerInfoCardMod.Settings.RuleCacheCapacity);
-            Log.Message("[Buyer Info Card] Initialized for RimWorld 1.6; build=" + BuildId + ".");
+            Log.Message("[Buyer Info Card] Initialized; target=" + TargetGameVersion + "; build=" + BuildId + ".");
         }
 
         private static void PatchRequired(MethodBase target, string prefix = null, string postfix = null)
         {
             if (target == null)
             {
-                Log.Error("[Buyer Info Card] Required RimWorld 1.6 patch target was not found.");
+                Log.Error("[Buyer Info Card] Required RimWorld patch target was not found; target=" + TargetGameVersion + ".");
                 return;
             }
 

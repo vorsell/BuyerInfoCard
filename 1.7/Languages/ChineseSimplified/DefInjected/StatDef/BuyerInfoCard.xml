@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BuyerInfoCard_Buyers.label>收购方</BuyerInfoCard_Buyers.label>
+  <BuyerInfoCard_Buyers.description>按当前商人定义会收购此类物品或生物的派系。</BuyerInfoCard_Buyers.description>
+</LanguageData>

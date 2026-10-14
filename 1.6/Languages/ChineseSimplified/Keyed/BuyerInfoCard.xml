@@ -36,11 +36,11 @@
   <BIC_Other>其他</BIC_Other>
   <BIC_NoKnownBuyer>无已知收购方</BIC_NoKnownBuyer>
   <BIC_NoWorldBuyer>当前世界没有对应派系实例</BIC_NoWorldBuyer>
-  <BIC_CurrentlyUnsellable>当前不可出售</BIC_CurrentlyUnsellable>
-  <BIC_CurrentReasons>当前限制：{0}</BIC_CurrentReasons>
+  <BIC_CurrentlyUnsellable>特殊状态</BIC_CurrentlyUnsellable>
+  <BIC_CurrentReasons>物品状态：{0}</BIC_CurrentReasons>
   <BIC_ReasonDeadmans>死者衣物</BIC_ReasonDeadmans>
   <BIC_ReasonBiocoded>生物编码</BIC_ReasonBiocoded>
-  <BIC_ReasonRotten>已经腐坏</BIC_ReasonRotten>
+  <BIC_ReasonRotten>已腐坏</BIC_ReasonRotten>
   <BIC_ReasonOther>其他当前出售限制</BIC_ReasonOther>
   <BIC_FactionWithNearestSettlement>{0}（最近据点：{1}，距离：{2}格）</BIC_FactionWithNearestSettlement>
   <BIC_FactionHyperlink>派系-{0}</BIC_FactionHyperlink>

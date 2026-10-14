@@ -1,6 +1,22 @@
 # Buyer Info Card / 收购方信息卡
 
-RimWorld 1.6 Mod。它把 `BuyerInfoCard_Buyers` 作为普通 `StatDef` 注入有效的 `ThingDef`，所以原版 InfoCard 与沿用统计条目的信息卡 Mod 都能读取同一结果。
+RimWorld 1.6 / 1.7 Mod。它把 `BuyerInfoCard_Buyers` 作为普通 `StatDef` 注入有效的 `ThingDef`，所以原版 InfoCard 与沿用统计条目的信息卡 Mod 都能读取同一结果。
+
+## 更新记录：2026-10-14
+
+- 新增对 RimWorld 1.7 的支持。
+- 优化特殊状态物品的信息卡显示：
+  - 针对开启对应显示选项后，死者衣物、生物编码物品和腐坏物的状态文字在英语等语言下过长的问题进行调整。
+  - 窄窗口下优先保留状态文字，多余图标折叠为 `+N`；空间仍不足时省略文字，悬浮可查看完整状态。
+  - 状态与买家图标或名称之间统一使用 ` | `，不新增分隔符设置项。
+  - 使用中性的“物品状态”提示，不笼统判定为“不可出售”；收购判断与过滤规则保持不变。
+  - 同步调整六种语言的状态表述，缩短部分日语和俄语文字。
+
+## 编译
+
+两个工程共用一套源码：`Source/BuyerInfoCard.csproj` 面向 .NET Framework 4.8.1（RimWorld 1.6），`Source/BuyerInfoCard.1.7.csproj` 面向 .NET 10（RimWorld 1.7）。1.6 工程通过 `RimWorldReferences` 指向独立保存的 Managed/Harmony 引用；1.7 工程通过 `RimWorldDir` 和 `HarmonyDir` 指向对应版本的引用。游戏和 Harmony DLL 不随输出复制，也不纳入本仓库。
+
+默认生成目录分别为 `1.6/Assemblies` 和 `1.7/Assemblies`，中间文件放在 Mod 外。编译检查应覆盖 `OutputPath`、`BaseIntermediateOutputPath` 和 `IntermediateOutputPath`，输出到外部临时目录；向实际 Mod 目录生成或复制 DLL 前必须退出游戏。编译通过不等于实机兼容验证通过。
 
 ## 规则
 
@@ -32,7 +48,9 @@ RimWorld 1.6 Mod。它把 `BuyerInfoCard_Buyers` 作为普通 `StatDef` 注入�
 
 设置窗口分为“基础设置”和“派系与物品”两页。“派系与物品”页左右各占一半：左侧按新建游戏的 `configurationListOrderPriority` 从小到大、由上到下列出当前加载的派系定义，其他派系按名称正序追加，最后放置没有图标且默认启用的“无派系商船”；右侧的死者衣物、生物编码与腐坏开关固定位于批量按钮下方，分类列表在其下方单独滚动。分类列表从上到下依次为类人种族、动物，然后是按原版存储区顺序排列的其他顶层 `ThingCategoryDef`。只有类人种族保留殖民者、囚犯、奴隶和其他子项，并按 How Did This Entity Die 的风格使用高亮底色和 `▶/▼` 展开标记；普通物品大类不显示子项，它们的开关直接控制整个大类，不再受旧版隐藏子项设置影响。派系和除“殖民者”外的分类默认开启，“殖民者”默认关闭。两栏均提供“全部启用”“全部取消”“重置”，列表复选框统一位于行末并支持拖动涂选。类人种族按 `RaceProps.Humanlike` 判断，因此不硬依赖 HAR。
 
-死者衣物、生物编码和腐坏三个实例过滤默认关闭并各自独立生效；无法归入这三类的其他当前出售限制始终隐藏。允许显示时，行内会标注“当前不可出售”，但仍展示底层定义对应的潜在收购方。定义上永久不可出售的物品仍由 `TradeUtility.EverPlayerSellable` 排除。派系列表使用通用定义名称，不依赖当前存档是否生成了该派系；真正显示结果时只保留存档中已经生成且被设置允许的派系。“自动排除敌对派系”默认关闭。
+死者衣物、生物编码和腐坏三个实例过滤默认关闭并各自独立生效；无法归入这三类的其他当前出售限制始终隐藏。目标存在这些状态且对应显示选项开启时，摘要会标注具体状态，详情使用“物品状态”说明，并继续展示底层定义对应的潜在收购方。例如死者衣物、生物编码物品以及已腐坏的物品；这表示物品当前的特殊状况，不代表所有商人都拒收，实际交易仍取决于具体商人规则及其他模组的行为。定义上永久不可出售的物品仍由 `TradeUtility.EverPlayerSellable` 排除。派系列表使用通用定义名称，不依赖当前存档是否生成了该派系；真正显示结果时只保留存档中已经生成且被设置允许的派系。“自动排除敌对派系”默认关闭。
+
+状态文字与后面的买家图标或名称之间使用固定的 ` | `，没有分隔符设置项。窄窗口优先保留状态文字，并为隐藏买家数量预留空间；必要时省略文字，悬浮可查看完整状态。收购方列表并非当前到访商人名单，也不保证当前物品一定能成交。
 
 摘要默认使用实际派系图标并按可用宽度显示多个，空间不足时使用 `+N`；“无派系商船”从不绘制图标，混合结果中始终折叠进 `+N`，只有它一个收购方时回退为纯文字。摘要与详情的派系顺序均跟随设置页中的派系顺序。详情使用纯文本连续显示“派系名称（最近据点：名称，距离：格数）→ `•` 商人类型”，空名称的商人类型会被忽略；无派系商船只显示名称和商人类型，不提供据点或派系链接。可在基础设置中分别隐藏最近据点或具体商人类型。链接显示为“派系-名称”与“最近定居点-名称”；派系链接可在“只打开派系菜单”和“只创建新 InfoCard”之间选择，默认打开派系菜单；最近据点链接会关闭当前信息卡并跳转、选中世界地图上的据点。当前世界没有实际 `Faction` 实例的定义级派系不会显示；实际派系仍存在但没有据点时，只省略括号中的据点信息及定居点链接。
 
@@ -55,7 +73,23 @@ RimWorld 1.6 Mod。它把 `BuyerInfoCard_Buyers` 作为普通 `StatDef` 注入�
 
 # Buyer Info Card
 
-A RimWorld 1.6 mod. It injects `BuyerInfoCard_Buyers` into eligible `ThingDef`s as a regular `StatDef`, allowing both the vanilla InfoCard and InfoCard mods that use stat entries to read the same results.
+A RimWorld 1.6 / 1.7 mod. It injects `BuyerInfoCard_Buyers` into eligible `ThingDef`s as a regular `StatDef`, allowing both the vanilla InfoCard and InfoCard mods that use stat entries to read the same results.
+
+## Changelog: October 14, 2026
+
+- Added support for RimWorld 1.7.
+- Improved info-card display for items with special conditions:
+  - Addressed overly long status text in English and other languages when corpse-worn, biocoded, or rotten items are shown with their corresponding display options enabled.
+  - Narrow windows prioritize status text and collapse excess icons into `+N`; when space is still insufficient, text is shortened and the full status remains available on hover.
+  - Standardized the separator between status and buyer icons or names to ` | `, without adding a separator setting.
+  - Changed the wording to the neutral “Item status” rather than broadly labeling items “unsellable”; buyer detection and filtering rules remain unchanged.
+  - Updated status wording across all six languages and shortened some Japanese and Russian labels.
+
+## Building
+
+Both projects compile the same source files: `Source/BuyerInfoCard.csproj` targets .NET Framework 4.8.1 for RimWorld 1.6, and `Source/BuyerInfoCard.1.7.csproj` targets .NET 10 for RimWorld 1.7. The 1.6 project uses `RimWorldReferences` for a separately preserved Managed/Harmony reference snapshot; the 1.7 project uses `RimWorldDir` and `HarmonyDir` for its matching references. Game and Harmony DLLs are non-copy-local and are not included in this repository.
+
+Default final outputs are `1.6/Assemblies` and `1.7/Assemblies`; intermediates stay outside the mod. For compilation checks, override `OutputPath`, `BaseIntermediateOutputPath`, and `IntermediateOutputPath` to external staging directories. Exit the game before building or copying DLLs into the active mod package. Successful compilation does not establish in-game compatibility.
 
 ## Rules
 
@@ -87,7 +121,9 @@ The 600-, 2,500-, 12,000-, and 60,000-tick intervals are only refresh or expiry 
 
 The settings window has “Basic” and “Factions & Items” pages. The latter is split evenly into two columns. The left column lists faction definitions from top to bottom by ascending new-game `configurationListOrderPriority`, followed by all remaining factions in alphabetical order, and finally the iconless, enabled-by-default “Factionless trade ships” entry. In the right column, the tainted-apparel, biocoded, and rotten-item toggles remain directly below the bulk-action buttons, with the independently scrolling category list beneath them. Categories are ordered as humanlike races, animals, then all other top-level `ThingCategoryDef`s in vanilla stockpile order. Only humanlike races keep the Colonists, Prisoners, Slaves, and Others children, using a highlighted background and `▶/▼` expansion markers in the style of How Did This Entity Die. Ordinary item categories show no children; their switches control the entire category directly and are no longer affected by hidden legacy child settings. Factions and all categories except Colonists are enabled by default; Colonists are disabled by default. Both columns provide Enable all, Disable all, and Reset actions. Checkboxes are consistently placed at the end of each row and support click-drag painting. Humanlike races are detected through `RaceProps.Humanlike`, so there is no hard dependency on HAR.
 
-The tainted-apparel, biocoded, and rotten-item instance filters are disabled by default and work independently. Other current-instance selling restrictions that do not belong to those three groups always remain hidden. When one of these groups is allowed, its row is marked “Currently unsellable” while still showing the potential buyers for the underlying definition. Items whose definitions are permanently unsellable remain excluded through `TradeUtility.EverPlayerSellable`. The faction list uses generic definition names and does not depend on whether the current save has generated those factions. Results themselves retain only generated factions that are allowed by the settings. “Automatically exclude hostile factions” is disabled by default.
+The corpse-worn-apparel, biocoded, and rotten-item instance filters are disabled by default and work independently. Other current-instance selling restrictions that do not belong to those three groups always remain hidden. When a condition applies and its display option is enabled, the summary identifies the specific condition and the details use “Item status,” while still showing potential buyers for the underlying definition. Examples include corpse-worn apparel, biocoded items, and rotten items. These notices describe the particular item’s condition, not a claim that every trader refuses it; actual acceptance depends on the specific trader’s rules and other mods. Items whose definitions are permanently unsellable remain excluded through `TradeUtility.EverPlayerSellable`. The faction list uses generic definition names and does not depend on whether the current save has generated those factions. Results themselves retain only generated factions that are allowed by the settings. “Automatically exclude hostile factions” is disabled by default.
+
+Status text and the following buyer icons or names use the fixed separator ` | `, with no separator setting. Narrow windows prioritize status text and reserve room for the hidden-buyer count; shortened status text remains available in full on hover. The buyer list is not a list of currently visiting traders and does not guarantee that the particular item can be sold.
 
 The summary uses actual faction icons by default and displays as many as fit, falling back to `+N` when space runs out. “Factionless trade ships” never draws an icon: it is always folded into `+N` when mixed with other results and falls back to plain text when it is the only buyer. Factions follow the settings-page order in both the summary and details. Details continuously display plain text in the form “Faction name (nearest settlement: name, distance: tiles) → `•` trader kind”; unnamed trader kinds are ignored. Factionless trade ships show only their group name and trader kinds, with no settlement or faction links. The nearest settlement and specific trader kinds can be hidden independently in Basic settings. Links appear as “Faction — Name” and “Nearest settlement — Name.” Faction links can either open only the faction menu or create only a new InfoCard; the faction menu is the default. A nearest-settlement link closes the current InfoCard, switches to the world map, and selects that settlement. Definition-level factions without an actual `Faction` instance in the current world are not shown. If a faction still exists but has no settlement, only the parenthetical settlement details and settlement link are omitted.
 

@@ -42,6 +42,8 @@ namespace BuyerInfoCard
 
     internal static class BuyerInfoPresentation
     {
+        internal const string SummarySeparatorText = " | ";
+
         internal static BuyerDisplayResult BuildDisplay(
             BuyerQueryResult query,
             BuyerInfoCardSettings settings)
@@ -58,7 +60,7 @@ namespace BuyerInfoCard
             bool drawSummaryIcons = settings.SummaryUsesIcons && hasFactionBuyer;
             string summaryPrefix = query.Restrictions == CurrentSaleRestriction.None
                 ? string.Empty
-                : "BIC_CurrentlyUnsellable".Translate().ToString();
+                : RestrictionText(query.Restrictions);
             string summary;
             if (query.Parties.Count == 0)
             {
@@ -79,7 +81,7 @@ namespace BuyerInfoCard
 
             if (query.Restrictions != CurrentSaleRestriction.None && !drawSummaryIcons)
             {
-                summary = "BIC_CurrentlyUnsellable".Translate() + " · " + summary;
+                summary = summaryPrefix + SummarySeparatorText + summary;
             }
 
             return new BuyerDisplayResult
@@ -199,7 +201,9 @@ namespace BuyerInfoCard
             {
                 labels.Add("BIC_ReasonOther".Translate());
             }
-            return string.Join(", ", labels.ToArray());
+            return labels.Count == 0 && restrictions != CurrentSaleRestriction.None
+                ? "BIC_CurrentlyUnsellable".Translate().ToString()
+                : string.Join(", ", labels.ToArray());
         }
     }
 }

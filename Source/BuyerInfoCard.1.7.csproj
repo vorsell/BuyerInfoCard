@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BuyerInfoCard</RootNamespace>
+    <AssemblyName>BuyerInfoCard</AssemblyName>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <OutputPath>..\1.7\Assemblies\</OutputPath>
+    <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)' == ''">G:\RimWorldTools\Build\BuyerInfoCard\1.7\obj\</BaseIntermediateOutputPath>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize Condition="'$(Configuration)' == 'Release'">true</Optimize>
+    <Deterministic>true</Deterministic>
+    <NuGetAudit>false</NuGetAudit>
+    <DefineConstants>$(DefineConstants);RIMWORLD_1_7</DefineConstants>
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">G:\SteamLibrary\steamapps\common\RimWorld</RimWorldDir>
+    <HarmonyDir Condition="'$(HarmonyDir)' == ''">G:\SteamLibrary\steamapps\workshop\content\294100\2009463077\1.7\Assemblies</HarmonyDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RimWorldDir)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityStubs">
+      <HintPath>$(RimWorldDir)\UnityStubs.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDir)\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="BuyerInfoCardSettings.cs" />
+    <Compile Include="BuyerInfoCardMod.cs" />
+    <Compile Include="BuyerInfoPresentation.cs" />
+    <Compile Include="CategoryCatalog.cs" />
+    <Compile Include="DisplayLabelUtility.cs" />
+    <Compile Include="FactionGearCustomizerCompatibility.cs" />
+    <Compile Include="BuyerInfoService.cs" />
+    <Compile Include="BuyerStatWorker.cs" />
+    <Compile Include="DiagnosticsApi.cs" />
+    <Compile Include="InfoCardUiPatches.cs" />
+  </ItemGroup>
+</Project>

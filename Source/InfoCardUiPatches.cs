@@ -18,6 +18,42 @@ namespace BuyerInfoCard
             new List<Dialog_InfoCard.Hyperlink>();
     }
 
+    // Pure width allocation: status takes precedence, with room reserved for
+    // the overflow count whenever not every buyer can be represented by an icon.
+    internal struct BuyerSummaryLayout
+    {
+        internal float PrefixWidth;
+        internal int IconsShown;
+        internal float CountWidth;
+
+        internal static BuyerSummaryLayout Calculate(
+            float width, float prefixWidth, int iconCount, int buyerCount,
+            float iconStep, float countWidth, float prefixGap)
+        {
+            width = Math.Max(0f, width);
+            prefixWidth = Math.Max(0f, prefixWidth);
+            prefixGap = prefixWidth > 0f ? Math.Max(0f, prefixGap) : 0f;
+            if (iconCount == buyerCount && prefixWidth + prefixGap + iconCount * iconStep <= width)
+            {
+                return new BuyerSummaryLayout { PrefixWidth = prefixWidth, IconsShown = iconCount };
+            }
+
+            countWidth = Math.Min(width, Math.Max(0f, countWidth));
+            float allocatedPrefix = Math.Min(prefixWidth, Math.Max(0f, width - countWidth - prefixGap));
+            float remaining = Math.Max(0f, width - allocatedPrefix
+                - (allocatedPrefix > 0f ? prefixGap : 0f) - countWidth);
+            int shown = iconStep > 0f
+                ? Math.Min(iconCount, (int)Math.Floor(remaining / iconStep))
+                : 0;
+            return new BuyerSummaryLayout
+            {
+                PrefixWidth = allocatedPrefix,
+                IconsShown = shown,
+                CountWidth = countWidth
+            };
+        }
+    }
+
     internal static class InfoCardUiPatches
     {
         private sealed class CardSnapshot
@@ -466,19 +502,10 @@ namespace BuyerInfoCard
 
             float valueWidth = width * 0.45f;
             Rect valueRect = new Rect(x + width - valueWidth + 4f, y, valueWidth - 6f, Text.LineHeight);
-            float cursor = valueRect.x;
-            if (!string.IsNullOrEmpty(display.SummaryPrefix))
-            {
-                Vector2 prefixSize = Text.CalcSize(display.SummaryPrefix + " · ");
-                float prefixWidth = Mathf.Min(prefixSize.x, valueRect.width * 0.55f);
-                Widgets.Label(new Rect(cursor, y, prefixWidth, Text.LineHeight), display.SummaryPrefix + " · ");
-                cursor += prefixWidth;
-            }
-
             float iconSize = Mathf.Min(18f, Text.LineHeight - 2f);
             float spacing = 2f;
-            float remainingWidth = Mathf.Max(0f, valueRect.xMax - cursor);
-            int capacity = Mathf.FloorToInt(remainingWidth / (iconSize + spacing));
+            string separator = BuyerInfoPresentation.SummarySeparatorText;
+            float prefixGap = Text.CalcSize(separator).x;
             List<BuyerParty> iconParties = new List<BuyerParty>();
             for (int index = 0; index < display.Parties.Count; index++)
             {
@@ -487,17 +514,53 @@ namespace BuyerInfoCard
                     iconParties.Add(display.Parties[index]);
                 }
             }
-            if (capacity <= 0)
+            if (valueRect.width <= 0f)
             {
-                Widgets.Label(valueRect, "BIC_BuyerCount".Translate(display.Parties.Count));
                 return;
             }
-            int shown = Mathf.Min(capacity, iconParties.Count);
-            if (shown < display.Parties.Count && shown >= capacity && shown > 0)
+            string status = display.SummaryPrefix ?? string.Empty;
+            float statusWidth = Text.CalcSize(status).x;
+            float countWidth = Text.CalcSize("+" + display.Parties.Count).x;
+            BuyerSummaryLayout layout = BuyerSummaryLayout.Calculate(
+                valueRect.width, statusWidth,
+                iconParties.Count, display.Parties.Count, iconSize + spacing,
+                countWidth, prefixGap);
+            // Proportional fonts need not make +111 wider than +99. Grow the
+            // reservation until the actual hidden count fits; it never shrinks.
+            for (int attempt = 0; attempt <= iconParties.Count; attempt++)
             {
-                shown--;
+                int overflow = display.Parties.Count - layout.IconsShown;
+                if (overflow == 0)
+                {
+                    break;
+                }
+                float actualCountWidth = Text.CalcSize("+" + overflow).x;
+                if (actualCountWidth <= layout.CountWidth || layout.CountWidth >= valueRect.width)
+                {
+                    break;
+                }
+                layout = BuyerSummaryLayout.Calculate(
+                    valueRect.width, statusWidth, iconParties.Count, display.Parties.Count,
+                    iconSize + spacing, actualCountWidth, prefixGap);
+            }
+            float cursor = valueRect.x;
+            if (!string.IsNullOrEmpty(status))
+            {
+                // Keep full status available even if an unusually narrow window
+                // can show only an ellipsis, or no status text at all.
+                TooltipHandler.TipRegion(valueRect, "BIC_CurrentReasons".Translate(status).ToString());
+                if (layout.PrefixWidth > 0f)
+                {
+                    DrawSingleLine(new Rect(cursor, y, layout.PrefixWidth, Text.LineHeight), status);
+                    if (layout.IconsShown > 0 || display.Parties.Count > layout.IconsShown)
+                    {
+                        DrawSingleLine(new Rect(cursor + layout.PrefixWidth, y, prefixGap, Text.LineHeight), separator);
+                    }
+                    cursor += layout.PrefixWidth + prefixGap;
+                }
             }
 
+            int shown = layout.IconsShown;
             for (int index = 0; index < shown; index++)
             {
                 BuyerParty party = iconParties[index];
@@ -520,8 +583,9 @@ namespace BuyerInfoCard
             int hidden = display.Parties.Count - shown;
             if (hidden > 0)
             {
-                Rect countRect = new Rect(cursor, y, Mathf.Max(0f, valueRect.xMax - cursor), Text.LineHeight);
-                Widgets.Label(countRect, "+" + hidden);
+                Rect countRect = new Rect(cursor, y,
+                    Mathf.Min(layout.CountWidth, Mathf.Max(0f, valueRect.xMax - cursor)), Text.LineHeight);
+                DrawSingleLine(countRect, "+" + hidden);
                 string hiddenNames = string.Empty;
                 int factionIconIndex = 0;
                 for (int index = 0; index < display.Parties.Count; index++)
@@ -542,7 +606,30 @@ namespace BuyerInfoCard
                     }
                     hiddenNames += party.Label;
                 }
-                TooltipHandler.TipRegion(countRect, hiddenNames);
+                string tooltip = "BIC_BuyerCount".Translate(hidden).ToString() + "\n" + hiddenNames;
+                if (!string.IsNullOrEmpty(status))
+                {
+                    tooltip = "BIC_CurrentReasons".Translate(status) + "\n\n" + tooltip;
+                }
+                TooltipHandler.TipRegion(countRect, tooltip);
+            }
+        }
+
+        private static void DrawSingleLine(Rect rect, string label)
+        {
+            if (rect.width <= 0f)
+            {
+                return;
+            }
+            bool previousWordWrap = Text.WordWrap;
+            try
+            {
+                Text.WordWrap = false;
+                Widgets.Label(rect, label.Truncate(rect.width));
+            }
+            finally
+            {
+                Text.WordWrap = previousWordWrap;
             }
         }
 
